@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home/{nombre}', [HomeController::class, 'home'])->name("welcome.home");
+
+
+
+//Hola Este cambio lo hizo David 
