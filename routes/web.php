@@ -18,12 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/home', [HomeController::class, 'prueba'])->name("welcome.home");
-=======
-Route::get('/home/{nombre}', [HomeController::class, 'home'])->name("welcome.home");
 
-
-
-//Hola Este cambio lo hizo David 
->>>>>>> 0eb2a51110001cb8edd691897893e1df14209f81
+?>

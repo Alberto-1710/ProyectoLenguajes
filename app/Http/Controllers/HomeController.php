@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         // Crear una instancia de Guzzle Client
         $client = new Client([
-            'base_uri' => 'http://localhost:8787/api', // Reemplaza con la URL de tu proyecto Spring Boot
+            'base_uri' => 'http://localhost:8787/api/prueba', // Reemplaza con la URL de tu proyecto Spring Boot
             'timeout'  => 2.0, // Tiempo máximo de espera en segundos
         ]);
 
