@@ -7,8 +7,10 @@
     <title>E-Commerce</title>
 </head>
 <body>
-    <h1>
-        "Bienvenido(a): "
-    </h1>
+<h1>
+<?php
+    echo "Bienvenido(a): ".$nombre;    
+?>
+</h1>
 </body>
 </html>
