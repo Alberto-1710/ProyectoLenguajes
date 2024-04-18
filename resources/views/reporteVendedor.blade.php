@@ -6,6 +6,6 @@
     <title>REPORTE</title>
 </head>
 <body>
-    
+
 </body>
 </html>
