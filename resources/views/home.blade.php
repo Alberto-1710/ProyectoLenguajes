@@ -48,10 +48,17 @@
     background-color: #304A6E;
   }
 
+  .btn-container {
+    display: flex;
+    justify-content: right; 
+  }
+
   .login-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-right: 5px; 
+  }
+
+  .register-btn {
+    margin-left: 5px; 
   }
 
   .products {
@@ -109,7 +116,11 @@
 </head>
 <body>
 <div class="container">
-  <a href="#" class="btn login-btn">Iniciar Sesión</a>
+  <div class="btn-container">
+    <a href="#" class="btn login-btn">Iniciar Sesión</a>
+    <a href="#" class="btn register-btn">Registrar Usuario</a> <!-- Nuevo botón -->
+  </div>
+
   <h1>Tienda en Línea: AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
   <a href="#" class="btn">Ver todos los productos</a>
@@ -119,21 +130,21 @@
       
       <h2>Producto 1</h2>
       <p>Descripción del Producto 1</p>
-      <p class="price">$50.00</p>
+      <p class="price">L50.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
     <div class="product">
      
       <h2>Producto 2</h2>
       <p>Descripción del Producto 2</p>
-      <p class="price">$30.00</p>
+      <p class="price">L30.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
     <div class="product">
       
       <h2>Producto 3</h2>
       <p>Descripción del Producto 3</p>
-      <p class="price">$20.00</p>
+      <p class="price">L20.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
   </div>
