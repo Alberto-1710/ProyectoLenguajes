@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agregamos la hoja de estilos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,22 +33,27 @@
 
     .input-group {
       margin-bottom: 20px;
-      position: relative; /* Añadido */
+      position: relative;
     }
 
     .input-group input {
-      width: calc(100% - 30px); /* Ajuste del ancho */
+      width: calc(100% - 40px); 
       padding: 10px;
       border-radius: 5px;
       border: 1px solid #304A6E;
+      padding-left: 40px; 
     }
 
     .input-group i {
       position: absolute;
       color: #304A6E;
-      top: 50%; /* Añadido */
-      transform: translateY(-50%); /* Añadido */
+      top: 50%;
+      transform: translateY(-50%);
       left: 10px;
+    }
+
+    .input-group label {
+      display: none; 
     }
 
     .btn {
@@ -77,11 +82,13 @@
     <h1>Login</h1>
     <div class="input-group">
       <i class="fas fa-user"></i>
-      <input type="text" placeholder="Usuario">
+      <label for="usuario" class="input-label">Usuario</label>
+      <input type="text" id="usuario" placeholder="Usuario">
     </div>
     <div class="input-group">
       <i class="fas fa-lock"></i>
-      <input type="password" placeholder="Contraseña">
+      <label for="contrasena" class="input-label">Contraseña</label>
+      <input type="password" id="contrasena" placeholder="Contraseña">
     </div>
     <button class="btn">Ingresar</button>
     <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
