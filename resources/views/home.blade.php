@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda en Línea sin Nombre</title>
+<title>Tienda en Línea</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agregamos la hoja de estilos de Font Awesome -->
 <style>
   body {
@@ -110,7 +110,7 @@
 <body>
 <div class="container">
   <a href="#" class="btn login-btn">Iniciar Sesión</a>
-  <h1>Tienda en Línea sin Nombre</h1>
+  <h1>Tienda en Línea: AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
   <a href="#" class="btn">Ver todos los productos</a>
 
