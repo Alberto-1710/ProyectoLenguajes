@@ -116,22 +116,22 @@
 
   <div class="products">
     <div class="product">
-      <img src="producto1.jpg" alt="Producto 1">
-      <h2>Icono Producto 1</h2>
+      
+      <h2>Producto 1</h2>
       <p>Descripción del Producto 1</p>
       <p class="price">$50.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
     <div class="product">
-      <img src="producto2.jpg" alt="Producto 2">
-      <h2>Icono Producto 2</h2>
+     
+      <h2>Producto 2</h2>
       <p>Descripción del Producto 2</p>
       <p class="price">$30.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
     <div class="product">
-      <img src="producto3.jpg" alt="Producto 3">
-      <h2>Icono Producto 3</h2>
+      
+      <h2>Producto 3</h2>
       <p>Descripción del Producto 3</p>
       <p class="price">$20.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>

@@ -86,13 +86,13 @@
     </header>
     <main>
       <div class="producto">
-        <img src="producto1.jpg" alt="Producto 1">
+      <i class="fa-solid fa-check"></i>
         <h2>Nombre del Producto 1</h2>
         <p>Descripción del Producto 1</p>
         <span>$20.00</span>
       </div>
       <div class="producto">
-        <img src="producto2.jpg" alt="Producto 2">
+      <i class="fa-solid fa-check"></i>
         <h2>Nombre del Producto 2</h2>
         <p>Descripción del Producto 2</p>
         <span>$30.00</span>
