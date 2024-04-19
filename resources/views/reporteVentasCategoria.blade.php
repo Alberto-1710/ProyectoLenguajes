@@ -14,7 +14,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 600px;
       margin: 50px auto;
       padding: 20px;
       background-color: #C0D0EF;
@@ -59,35 +59,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>Reporte de Ventas</h1>
+    <h1>Reporte de Ventas Por Categoría</h1>
     <table class="sales-table">
       <thead>
         <tr>
-          <th>Fecha</th>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Total</th>
+          <th>Categoría</th>
+          <th>Cantidad Vendida</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Aquí se llenará dinámicamente con la información de ventas del codigo que haremos -->
+        <!-- Aquí se llenará dinámicamente con la información de ventas del código que haremos -->
         <tr>
-          <td>2024-04-19</td>
-          <td>Producto A</td>
-          <td>10</td>
-          <td>L1000</td>
+          <td>Electrónica</td>
+          <td>25</td>
         </tr>
         <tr>
-          <td>2024-04-19</td>
-          <td>Producto B</td>
-          <td>8</td>
-          <td>L800</td>
+          <td>Ropa</td>
+          <td>40</td>
         </tr>
         <tr>
-          <td>2024-04-19</td>
-          <td>Producto C</td>
+          <td>Libros</td>
           <td>15</td>
-          <td>L1500</td>
         </tr>
       </tbody>
     </table>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte de Compras</title>
+  <title>Reporte de Compras por Usuario</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 600px;
       margin: 50px auto;
       padding: 20px;
       background-color: #C0D0EF;
@@ -59,35 +59,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>Reporte de Compras</h1>
+    <h1>Reporte de Compras por Usuario</h1>
     <table class="purchases-table">
       <thead>
         <tr>
-          <th>Fecha</th>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Total</th>
+          <th>Usuario</th>
+          <th>Cantidad de Compras</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Aquí se llenará dinámicamente con la información de compras con el codigo que haremos-->
+        <!-- Aquí se llenará dinámicamente con la información de compras del código que implementemos -->
         <tr>
-          <td>2024-04-19</td>
-          <td>Producto A</td>
-          <td>2</td>
-          <td>$50</td>
+          <td>Usuario 1</td>
+          <td>5</td>
         </tr>
         <tr>
-          <td>2024-04-20</td>
-          <td>Producto B</td>
-          <td>1</td>
-          <td>$30</td>
+          <td>Usuario 2</td>
+          <td>8</td>
         </tr>
         <tr>
-          <td>2024-04-21</td>
-          <td>Producto C</td>
-          <td>3</td>
-          <td>$80</td>
+          <td>Usuario 3</td>
+          <td>12</td>
         </tr>
       </tbody>
     </table>
