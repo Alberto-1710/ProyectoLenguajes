@@ -144,7 +144,7 @@
       
       <h2>Producto 3</h2>
       <p>Descripción del Producto 3</p>
-      <p class="price">L20.00</p>
+      <p class="price">420.00</p>
       <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
     </div>
   </div>
