@@ -138,7 +138,12 @@
       <h2>Producto 1</h2>
       <p>Descripción del Producto 1</p>
       <p class="price">L50.00</p>
-      <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
+      
+      <form action="CarritoController.php" method="POST">
+        <input type="hidden" name="productId" value="1">
+        <input type="number" name="cantidad" value="1" min="1">
+        <a href="{{ route('carrito.home') }}" type="submit" name="add_to_cart">Agregar al carrito</a>
+    </form> 
     </div>
     <div class="product">
      
@@ -157,4 +162,22 @@
   </div>
 </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Selecciona todos los elementos con la clase .add-to-cart
+    var addToCartButtons = document.querySelectorAll('.add-to-cart');
+  
+    // Itera sobre cada botón "Agregar al carrito"
+    addToCartButtons.forEach(function(button) {
+      // Agrega un evento de clic a cada botón
+      button.addEventListener('click', function() {
+        // Obtén el nombre del producto del elemento padre (.product)
+        var nombreProducto = this.parentNode.querySelector('h2').innerText;
+        
+        // Muestra el nombre del producto en la consola
+        console.log("Producto agregado al carrito: " + nombreProducto);
+      });
+    });
+  });
+  </script>
 </html>
