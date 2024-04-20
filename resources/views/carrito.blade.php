@@ -121,8 +121,8 @@
       <!-- Añadir más productos aquí -->
       <!-- Botones -->
       <div class="btn-container">
-        <button class="btn" onclick="procederCompra()">Proceder a compra</button>
-        <button class="btn" onclick="volver()">Volver</button>
+        <a class="btn" onclick="procederCompra()">Proceder a compra</a>
+        <a href = "{{ route('home') }}" class="btn" >Volver</a>
       </div>
     </main>
   </div>
@@ -130,13 +130,9 @@
   <script>
     function procederCompra() {
       // Aquí puedes agregar la lógica para proceder a la compra
-      alert("Procediendo a compra...");
+      alert("Debes seleccionar un metodo de pago...");
     }
 
-    function volver() {
-      // Aquí puedes agregar la lógica para volver
-      alert("Volviendo...");
-    }
   </script>
 </body>
 </html>

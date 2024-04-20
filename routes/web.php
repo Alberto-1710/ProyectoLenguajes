@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/home/{nombre}', [HomeController::class, 'saludo'])->name("welcome.home");
+Route::post('/inicio', [HomeController::class, 'crearUsuario'])->name("usuario.home");
 
 Route::get('/', function () {
     return view('home');
@@ -24,13 +26,20 @@ Route::get('/crearUsuario', function(){
     return view('crearUsuario');
 })->name("crear.home");
 
+Route::get('/carrito', function(){
+    return view('carrito');
+})->name("carrito.home");
 
-Route::post('/inicio', [HomeController::class, 'crearUsuario'])->name("usuario.home");
-Route::get('/carrito', [HomeController::class, 'carrito'])->name("carrito.home");
+
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
 Route::get('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
+
+Route::get('/cart', [CarritoController::class, 'agregar'])->name('carrito.index');
+Route::post('/cart/add', 'CartController@addToCart')->name('cart.addToCart');
+Route::post('/cart/remove', 'CartController@removeFromCart')->name('cart.removeFromCart');
+Route::post('/cart/update', 'CartController@updateCart')->name('cart.updateCart');
 
 ?>
