@@ -25,10 +25,11 @@ Route::get('/crearUsuario', function(){
 })->name("crear.home");
 
 
-Route::post('/', [HomeController::class, 'crearUsuario'])->name("usuario.home");
+Route::post('/inicio', [HomeController::class, 'crearUsuario'])->name("usuario.home");
 Route::get('/carrito', [HomeController::class, 'carrito'])->name("carrito.home");
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
+Route::get('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
 
