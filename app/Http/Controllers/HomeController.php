@@ -39,30 +39,38 @@ class HomeController extends Controller
         }
     }
 
+    protected $client;
 
-    public function prueba()
+    public function __construct(Client $client)
     {
-        // Crear una instancia de Guzzle Client
-        $client = new Client([
-        
-            //'base_uri' => 'http://localhost:8787/api/',
-            //'base_uri' => 'http://localhost:8787/api/usuario/crear', // Reemplaza con la URL de tu proyecto Spring Boot
-            //'timeout'  => 2.0, // Tiempo máximo de espera en segundos
+        $this->client = $client;
+    }
+    
+    public function saludo($nombre){
 
-            $url = 'http://localhost:8787/api/usuario/crear',
+        $response = $this->client->request('GET', 'api/home/'.$nombre);
 
-            $body = [
-                'usuario' => 'caballeros',
-                'contrasenia' => 'delzobaco'
-        ]]);
+        $body = $response->getBody()->getContents(); 
+
+        return $body;
+
+    }
+   
+
+    public function crearUsuario(Request $request)
+    {  
+        $usuario = $request->input('usuario');
+        $contrasenia = $request->input('contrasenia');
 
         try {
+            $body = [
+                'usuario' => $usuario,
+                'contrasenia' => $contrasenia];
             // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
             //$response = $client->request('GET', 'home/Sofia');
-            $response = $client->post($url, [
+            $response = $this->client->request('POST', 'api/usuario/crear', [
                 'json' => $body // Enviar el cuerpo como JSON
             ]);
-
             
             // Obtener el código de estado de la respuesta
             $statusCode = $response->getStatusCode();
@@ -71,10 +79,43 @@ class HomeController extends Controller
             $body = $response->getBody()->getContents();
             
             // Puedes manejar la respuesta aquí según tus necesidades
-            return "Usuario creado";
+            return view('home');
+
         } catch (\Exception $e) {
             // Manejar cualquier error que ocurra durante la solicitud
             return $e->getMessage();
         }
     }
+
+    public function validarUsuario(Request $request)
+    {  
+        $usuario = $request->input('usuario');
+        $contrasenia = $request->input('contrasenia');
+
+        try {
+            $body = [
+                'usuario' => $usuario,
+                'contrasenia' => $contrasenia];
+            // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
+            //$response = $client->request('GET', 'home/Sofia');
+            $response = $this->client->request('POST', 'api/usuario/login', [
+                'json' => $body // Enviar el cuerpo como JSON
+            ]);
+            
+            // Obtener el código de estado de la respuesta
+            $statusCode = $response->getStatusCode();
+            
+            // Obtener el cuerpo de la respuesta como una cadena JSON
+            $body = $response->getBody()->getContents();
+            
+            // Puedes manejar la respuesta aquí según tus necesidades
+            return view('home');
+
+        } catch (\Exception $e) {
+            // Manejar cualquier error que ocurra durante la solicitud
+            return $e->getMessage();
+        }
+    }
+
+
 }

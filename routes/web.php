@@ -14,14 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/home/{nombre}', [HomeController::class, 'saludo'])->name("welcome.home");
+
 Route::get('/', function () {
     return view('home');
-});
+})->name("home");
 
-Route::get('/home', [HomeController::class, 'prueba'])->name("welcome.home");
+Route::get('/crearUsuario', function(){
+    return view('crearUsuario');
+})->name("crear.home");
+
+
+Route::post('/inicio', [HomeController::class, 'crearUsuario'])->name("usuario.home");
 Route::get('/carrito', [HomeController::class, 'carrito'])->name("carrito.home");
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
+Route::get('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
 

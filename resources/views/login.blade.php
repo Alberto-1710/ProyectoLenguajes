@@ -87,10 +87,10 @@
     </div>
     <div class="input-group">
       <i class="fas fa-lock"></i>
-      <label for="contrasena" class="input-label">Contraseña</label>
-      <input type="password" id="contrasena" placeholder="Contraseña">
+      <label for="contrasenia" class="input-label">Contraseña</label>
+      <input type="password" id="contrasenia" placeholder="Contraseña">
     </div>
-    <button class="btn">Ingresar</button>
+    <a href="{{ route('validar.home') }}" class="btn">Ingresar</a>
     <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
   </div>
 </body>
