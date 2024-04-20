@@ -118,8 +118,9 @@
 <div class="container">
   <div class="btn-container">
     <a href="#" class="btn login-btn">Iniciar Sesión</a>
-    <a href="#" class="btn register-btn">Registrar Usuario</a> <!-- Nuevo botón -->
-  </div>
+    <a href="{{ route('crear.home') }}" class="btn register-btn" >Crear Usuario</a> <!-- Nuevo botón -->
+  </div> 
+  
 
   <h1>Tienda en Línea: AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>

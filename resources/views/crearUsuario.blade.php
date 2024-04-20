@@ -80,7 +80,7 @@
       <div class="btn-container">
         <!-- Aqui en el boton crear se puede mandar la ruta para crear el usuario  -->
         <button type="submit" class="btn" onclick="mostrarAlerta()">Crear</button>
-        <button type="button" class="btn" onclick="volver()">Volver</button>
+        <a href="{{ route('home') }}" class="btn register-btn" >Volver</a>
       </div>
     </form>
     <script>
