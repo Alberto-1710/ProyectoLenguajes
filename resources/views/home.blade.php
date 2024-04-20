@@ -161,7 +161,6 @@
     </div>
   </div>
 </div>
-</body>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Selecciona todos los elementos con la clase .add-to-cart
@@ -180,4 +179,5 @@
     });
   });
   </script>
+</body>
 </html>
