@@ -59,16 +59,50 @@ class HomeController extends Controller
 
     public function crearUsuario(Request $request)
     {  
+        $primernombre = $request->input('primernombre');
+        $segundonombre = $request->input('segundonombre');
+        $primerapellido = $request->input('primerapellido');
+        $segundoapellido = $request->input('segundoapellido');
+        $telefono = $request->input('telefono');
+        $correo = $request->input('correo');
+        $dni = $request->input('dni');
+        $genero = $request->input('genero');
+        $fechanacimiento = $request->input('fechanacimiento');
+        $pais = $request->input('pais');
+        $departamento = $request->input('departamento');
+        $municipio = $request->input('municipio');
+        $aldea = $request->input('aldea');
+        $colonia = $request->input('colonia');
+        $referencia = $request->input('referencia');
         $usuario = $request->input('usuario');
         $contrasenia = $request->input('contrasenia');
 
+
+
         try {
             $body = [
+                'primernombre' => $primernombre,
+                'segundonombre' => $segundonombre,
+                'primerapellido' => $primerapellido,
+                'segundoapellido' => $segundoapellido,
+                'telefono' => $telefono,
+                'correo' => $correo,
+                'dni' => $dni,
+                'genero' => $genero,
+                'fechanacimiento' => $fechanacimiento,
+                'pais' => $pais,
+                'departamento' => $departamento,
+                'municipio' => $municipio,
+                'aldea' => $aldea,
+                'colonia' => $colonia,
+                'referencia' => $referencia,
                 'usuario' => $usuario,
-                'contrasenia' => $contrasenia];
+                'contrasenia' => $contrasenia
+                
+            ];
             // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
             //$response = $client->request('GET', 'home/Sofia');
-            $response = $this->client->request('POST', 'api/usuario/crear', [
+            $response = $this->client->request('POST', 'api/persona/crear', [
                 'json' => $body // Enviar el cuerpo como JSON
             ]);
             
