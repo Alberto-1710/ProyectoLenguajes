@@ -77,6 +77,27 @@
       color: #304A6E;
       display: block;
     }
+
+    /* Estilos para los botones */
+    .btn-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn {
+      background-color: #668DC0;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #304A6E;
+    }
   </style>
 </head>
 <body>
@@ -86,19 +107,36 @@
     </header>
     <main>
       <div class="producto">
-      <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-check"></i>
         <h2>Nombre del Producto 1</h2>
         <p>Descripción del Producto 1</p>
         <span>$20.00</span>
       </div>
       <div class="producto">
-      <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-check"></i>
         <h2>Nombre del Producto 2</h2>
         <p>Descripción del Producto 2</p>
         <span>$30.00</span>
       </div>
       <!-- Añadir más productos aquí -->
+      <!-- Botones -->
+      <div class="btn-container">
+        <button class="btn" onclick="procederCompra()">Proceder a compra</button>
+        <button class="btn" onclick="volver()">Volver</button>
+      </div>
     </main>
   </div>
+
+  <script>
+    function procederCompra() {
+      // Aquí puedes agregar la lógica para proceder a la compra
+      alert("Procediendo a compra...");
+    }
+
+    function volver() {
+      // Aquí puedes agregar la lógica para volver
+      alert("Volviendo...");
+    }
+  </script>
 </body>
 </html>
