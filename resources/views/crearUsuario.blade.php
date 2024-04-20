@@ -67,21 +67,29 @@
 <body>
   <div class="container">
     <h2>Crear Nuevo Usuario</h2>
-    <form>
+    <form id="formulario" method="POST" action="{{ route('usuario.home')}}">
+      @csrf
       <div class="form-group">
         <label for="username">Usuario</label>
-        <input type="text" id="username" name="username" placeholder="Ingrese el nombre de usuario">
+        <input type="text" id="username" name="usuario" placeholder="Ingrese el nombre de usuario">
       </div>
       <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" placeholder="Ingrese la contraseña">
+        <input type="password" id="password" name="contrasenia" placeholder="Ingrese la contraseña">
       </div>
       <div class="btn-container">
         <!-- Aqui en el boton crear se puede mandar la ruta para crear el usuario  -->
-        <button type="submit" class="btn" >Crear</button>
+        <button type="submit" class="btn" onclick="mostrarAlerta()">Crear</button>
         <button type="button" class="btn" onclick="volver()">Volver</button>
       </div>
     </form>
+    <script>
+      // Función para mostrar la alerta y redireccionar
+      function mostrarAlerta() {
+          // Muestra la alerta
+          alert("Usuario creado exitosamente\nRetornando a la página principal." );
+      }
+  </script>
   </div>
 </body>
 </html>
