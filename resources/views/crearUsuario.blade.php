@@ -89,10 +89,8 @@
     }
     
     .form-group.direccion h3 {
-  color: black;
-     
+      color: black;     
     }
-     
     
   </style>
 </head>
@@ -101,6 +99,14 @@
     <h2>Crear Nuevo Usuario</h2>
     <form id="formulario" method="POST" action="{{ route('usuario.home')}}">
       @csrf
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre de usuario">
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="contrasenia" name="password" placeholder="Ingrese la contraseña">
+      </div>
       <div class="form-row">
         <div class="form-col">
           <div class="form-group">
