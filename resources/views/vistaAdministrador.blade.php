@@ -28,6 +28,12 @@
     margin-bottom: 20px;
   }
 
+  h2 { /* Nuevo estilo para el título */
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
   p {
     font-size: 18px;
     margin-bottom: 30px;
@@ -36,12 +42,13 @@
   .btn {
     background-color: #668DC0;
     color: #fff;
-    padding: 10px 20px;
+    padding: 16px 32px; /* Aumento del tamaño del botón */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Aumento del radio del borde */
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    font-size: 20px; /* Aumento del tamaño del texto */
   }
 
   .btn:hover {
@@ -50,12 +57,12 @@
 
   .btn-container {
     display: flex;
-    justify-content: right;
+    justify-content: center; /* Ajuste para centrar los botones */
     margin-bottom: 20px;
   }
 
   .btn-container .btn {
-    margin-right: 10px;
+    margin: 0 10px; /* Ajuste de margen para los botones */
   }
 
   .login-btn {
@@ -67,36 +74,20 @@
   }
 
   .admin-options {
-    margin-top: 20px;
-  }
-
-  .admin-options a {
-    color: #668DC0;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-
-  .admin-options a:hover {
-    color: #304A6E;
+    display: none; /* Ocultar las opciones */
   }
 
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="btn-container">
-    <a href="#" class="btn admin-btn">Agregar Vendedores</a>
-    <a href="#" class="btn admin-btn">Agregar Productos a Vendedores</a>
-  </div> 
-  
   <h1>Tienda en Línea: AgoraMarket</h1>
-  <p>Bienvenido Administrador</p>
-
-  <div class="admin-options">
-    <a href="#">Opción 1</a>
-    <a href="#">Opción 2</a>
-    <a href="#">Opción 3</a>
-  </div>
+  <h1>Bienvenido Administrador</h1>
+  <h2>¿Qué desea hacer?</h2> <!-- Nuevo título encima de los botones -->
+  <div class="btn-container">
+    <a href="#" class="btn admin-btn">Agregar Vendedor</a>
+    <a href="#" class="btn admin-btn">Agregar Producto a Vendedor</a>
+  </div> 
 </div>
 </body>
 </html>
