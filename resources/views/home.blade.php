@@ -71,12 +71,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     position: relative;
+    display: flex; /* Cambia el comportamiento del contenedor a flex */
   }
 
   .product img {
-    width: 100%;
+    width: 150px; /* Ajusta el ancho de la imagen según tu preferencia */
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-right: 20px; /* Ajusta el margen derecho para separar la imagen del texto */
   }
 
   .product h2 {
@@ -99,9 +100,8 @@
   }
 
   .add-to-cart-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    margin-left: auto; /* Mueve el contenedor al extremo derecho */
+    margin-top: auto; /* Mueve el contenedor al extremo inferior */
   }
 
   .add-to-cart-btn {
@@ -131,8 +131,9 @@
       margin-right: 10px; /* Ajusta el margen derecho para separar la imagen del texto */
  }
 
-
-
+ .product-info {
+    flex: 1; /* El texto ocupa todo el espacio restante */
+ }
 </style>
 </head>
 <body>
@@ -149,10 +150,12 @@
 
   <div class="products">
     <div class="product">
-      <img class="imagen"  src="https://static.vecteezy.com/system/resources/previews/021/104/109/non_2x/white-t-shirt-free-png.png">
-      <h2>Categoria: Ropa</h2>
-      <p>Camiseta</p>
-      <p class="price">L100.00</p>
+      <img class="imagen" src="https://static.vecteezy.com/system/resources/previews/021/104/109/non_2x/white-t-shirt-free-png.png">
+      <div class="product-info">
+        <h2>Categoria: Ropa</h2>
+        <p>Camiseta</p>
+        <p class="price">L100.00</p>
+      </div>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
@@ -161,10 +164,12 @@
       </div>
     </div>
     <div class="product">
-      <img src="https://rojocanela.com.mx/cdn/shop/products/75-9376-3_20BLANCO_1_600x.png?v=1695251673">
-      <h2>Categoria: Calzado</h2>
-      <p>Tenis</p>
-      <p class="price">L800.00</p>
+      <img class="imagen" src="https://rojocanela.com.mx/cdn/shop/products/75-9376-3_20BLANCO_1_600x.png?v=1695251673">
+      <div class="product-info">
+        <h2>Categoria: Calzado</h2>
+        <p>Tenis</p>
+        <p class="price">L800.00</p>
+      </div>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
@@ -173,10 +178,12 @@
       </div>
     </div>
     <div class="product">
-      <img src="https://media.glamour.es/photos/6233c2c7ba8a9f506b6dd0cd/master/w_320%2Cc_limit/LANCOME-FRAGRANCE-OUI-LVEB2022-30ML-000-3614273687485-CLOSED.png">
-      <h2>Categoria: Perfumes</h2>
-      <p>Loción para dama</p>
-      <p class="price">L.720.00</p>
+      <img class="imagen" src="https://media.glamour.es/photos/6233c2c7ba8a9f506b6dd0cd/master/w_320%2Cc_limit/LANCOME-FRAGRANCE-OUI-LVEB2022-30ML-000-3614273687485-CLOSED.png">
+      <div class="product-info">
+        <h2>Categoria: Perfumes</h2>
+        <p>Loción para dama</p>
+        <p class="price">L.720.00</p>
+      </div>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
@@ -213,6 +220,6 @@
       });
     });
   });
-  </script>
+</script>
 </body>
 </html>
