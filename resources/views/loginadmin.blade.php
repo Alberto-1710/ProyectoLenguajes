@@ -81,18 +81,29 @@
 <body>
   <div class="login-container">
     <h1>Login Administrador</h1>
+    <form action="{{ route('validar.admin')}}" method="POST">
+    @csrf
     <div class="input-group">
       <i class="fas fa-user"></i>
       <label for="usuario" class="input-label">Usuario</label>
-      <input type="text" id="usuario" placeholder="Usuario">
+      <input type="text" id="usuario" name="usuario" placeholder="Usuario">
     </div>
     <div class="input-group">
       <i class="fas fa-lock"></i>
       <label for="contrasenia" class="input-label">Contraseña</label>
-      <input type="password" id="contrasenia" placeholder="Contraseña">
+      <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña">
     </div>
-    <a href="{{ route('validar.home') }}" class="btn">Ingresar</a>
+    <button  class="btn">Ingresar</button>
     <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
   </div>
+  <script>
+    // Verificar si hay un mensaje de alerta y mostrar una alerta emergente
+    window.onload = function() {
+        var alerta = '{{ session('alerta') }}';
+        if (alerta) {
+            alert(alerta);
+        }
+    };
+</script>
 </body>
 </html>

@@ -25,6 +25,10 @@ class HomeController extends Controller
         return view('login');
     }
 
+    public function loginAdmin(){
+        return view('loginAdmin');
+    }
+
     public function realizarPago(){
         return view('pago');
     }
@@ -146,7 +150,7 @@ class HomeController extends Controller
             // Obtener el cuerpo de la respuesta
             $body = $response->getBody()->getContents();
             // Manejar la respuesta del servidor
-            return redirect()->route('home');
+            return redirect()->route('home.usuario');
 
            
         } catch (RequestException $e) {
@@ -155,12 +159,12 @@ class HomeController extends Controller
                 // Obtener el código de estado del error
                 $statusCode = $e->getResponse()->getStatusCode();
                 if ($statusCode === 401) {
-                    return redirect()->route('login.home')->with('alerta', 'Contraseña incorrecta');
+                    return redirect()->route('loginuser.home')->with('alerta', 'Contraseña incorrecta');
                     
                 } elseif ($statusCode === 404) {
-                    return redirect()->route('login.home')->with('alerta', 'Usuario no existe');
+                    return redirect()->route('loginuser.home')->with('alerta', 'Usuario no existe');
                 } else {
-                    return redirect()->route('login.home')->with('alerta', 'Error desconocido!');
+                    return redirect()->route('loginuser.home')->with('alerta', 'Error desconocido!');
                 }
                 
                 
@@ -170,4 +174,16 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function validarAdmin(Request $request)
+    {
+        $usuario = $request->input('usuario');
+        $contrasenia = $request->input('contrasenia');
+    
+        if ($usuario == "admin" && $contrasenia == "root") {
+            return redirect()->route('admin.home');
+        }
+        
+        // Si la validación falla, redirigir al usuario administrador a la ruta de inicio de sesión
+        return redirect()->route('loginadmin.home')->with('alerta', 'Usuario o contraseña incorrectos');
+    }
 }

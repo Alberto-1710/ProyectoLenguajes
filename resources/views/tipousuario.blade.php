@@ -56,8 +56,8 @@
   <div class="container">
     <h1>¿Qué tipo de usuario eres?</h1>
     <div class="btn-container">
-      <a href="{{ route('admin.home') }}" class="btn">Usuario Administrador</a>
-      <a href="{{ route('login.home') }}" class="btn">Usuario Básico</a>
+      <a href="{{ route('loginadmin.home') }}" class="btn">Usuario Administrador</a>
+      <a href="{{ route('loginuser.home') }}" class="btn">Usuario Básico</a>
     </div>
   </div>
 </body>
