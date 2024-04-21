@@ -124,6 +124,15 @@
   .add-to-cart-btn:hover {
     background-color: #304A6E;
   }
+
+ .imagen {
+      width: 20px; /* Ajusta el ancho de la imagen según tu preferencia */
+      float: left; /* Coloca la imagen a la izquierda */
+      margin-right: 10px; /* Ajusta el margen derecho para separar la imagen del texto */
+ }
+
+
+
 </style>
 </head>
 <body>
@@ -134,14 +143,16 @@
     <a href="{{ route('crear.home') }}" class="btn register-btn">Crear Usuario</a> <!-- Nuevo botón -->
   </div> 
 
+  
   <h1>AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
 
   <div class="products">
     <div class="product">
-      <h2>Producto 1</h2>
-      <p>Descripción del Producto 1</p>
-      <p class="price">L50.00</p>
+      <img class="imagen"  src="https://static.vecteezy.com/system/resources/previews/021/104/109/non_2x/white-t-shirt-free-png.png">
+      <h2>Categoria: Ropa</h2>
+      <p>Camiseta</p>
+      <p class="price">L100.00</p>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
@@ -150,9 +161,10 @@
       </div>
     </div>
     <div class="product">
-      <h2>Producto 2</h2>
-      <p>Descripción del Producto 2</p>
-      <p class="price">L30.00</p>
+      <img src="https://rojocanela.com.mx/cdn/shop/products/75-9376-3_20BLANCO_1_600x.png?v=1695251673">
+      <h2>Categoria: Calzado</h2>
+      <p>Tenis</p>
+      <p class="price">L800.00</p>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
@@ -161,9 +173,10 @@
       </div>
     </div>
     <div class="product">
-      <h2>Producto 3</h2>
-      <p>Descripción del Producto 3</p>
-      <p class="price">420.00</p>
+      <img src="https://media.glamour.es/photos/6233c2c7ba8a9f506b6dd0cd/master/w_320%2Cc_limit/LANCOME-FRAGRANCE-OUI-LVEB2022-30ML-000-3614273687485-CLOSED.png">
+      <h2>Categoria: Perfumes</h2>
+      <p>Loción para dama</p>
+      <p class="price">L.720.00</p>
       <div class="add-to-cart-container">
         <button class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
