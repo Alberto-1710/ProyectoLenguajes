@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use GuzzleHttp\Exception\RequestException; //para validacion 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
@@ -128,34 +129,45 @@ class HomeController extends Controller
     }
 
     public function validarUsuario(Request $request)
-    {  
-        $usuario = $request->input('usuario');
+    {   $usuario = $request->input('usuario');
         $contrasenia = $request->input('contrasenia');
 
         try {
+
             $body = [
                 'usuario' => $usuario,
-                'contrasenia' => $contrasenia];
-            // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
-            //$response = $client->request('GET', 'home/Sofia');
+                'contrasenia' => $contrasenia,
+            ];
+            // Realizar la solicitud al backend
             $response = $this->client->request('POST', 'api/usuario/login', [
                 'json' => $body // Enviar el cuerpo como JSON
             ]);
-            
-            // Obtener el código de estado de la respuesta
-            $statusCode = $response->getStatusCode();
-            
-            // Obtener el cuerpo de la respuesta como una cadena JSON
+
+            // Obtener el cuerpo de la respuesta
             $body = $response->getBody()->getContents();
-            
-            // Puedes manejar la respuesta aquí según tus necesidades
-            return view('home');
+            // Manejar la respuesta del servidor
+            return redirect()->route('home');
 
-        } catch (\Exception $e) {
-            // Manejar cualquier error que ocurra durante la solicitud
-            return $e->getMessage();
+           
+        } catch (RequestException $e) {
+            // Manejar errores de solicitud
+            if ($e->hasResponse()) {
+                // Obtener el código de estado del error
+                $statusCode = $e->getResponse()->getStatusCode();
+                if ($statusCode === 401) {
+                    return redirect()->route('login.home')->with('alerta', 'Contraseña incorrecta');
+                    
+                } elseif ($statusCode === 404) {
+                    return redirect()->route('login.home')->with('alerta', 'Usuario no existe');
+                } else {
+                    return redirect()->route('login.home')->with('alerta', 'Error desconocido!');
+                }
+                
+                
+            }
         }
-    }
 
+        return view('home');
+    }
 
 }

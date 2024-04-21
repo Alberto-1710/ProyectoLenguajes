@@ -44,7 +44,7 @@ Route::get('/admin', function(){
 
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
-Route::get('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
+Route::post('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
 
