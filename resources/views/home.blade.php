@@ -146,7 +146,6 @@
     </form> 
     </div>
     <div class="product">
-     
       <h2>Producto 2</h2>
       <p>Descripción del Producto 2</p>
       <p class="price">L30.00</p>
@@ -163,6 +162,9 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+   // Verifica si hay productos en el localStorage y obtén la lista de productos
+   var productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+    
     // Selecciona todos los elementos con la clase .add-to-cart
     var addToCartButtons = document.querySelectorAll('.add-to-cart');
   
@@ -175,6 +177,13 @@
         
         // Muestra el nombre del producto en la consola
         console.log("Producto agregado al carrito: " + nombreProducto);
+        
+        // Agrega el nombre del producto a la lista de productos en el carrito
+        productosEnCarrito.push(nombreProducto);
+        
+        // Guarda la lista actualizada de productos en el localStorage
+        localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
+        
       });
     });
   });
