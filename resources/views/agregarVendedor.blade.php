@@ -74,7 +74,7 @@
   <div class="container">
     <h1>Agregar Producto a Vendedor</h1>
     <div class="input-group">
-      <label for="usuario">Usuario:</label>
+      <label for="usuario">Usuario Vendedor:</label>
       <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre de usuario">
     </div>
     <div class="input-group">
