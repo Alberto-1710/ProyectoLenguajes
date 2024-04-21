@@ -105,29 +105,29 @@
       </div>
       <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" id="contrasenia" name="password" placeholder="Ingrese la contraseña">
+        <input type="password" id="contrasenia" name="contrasenia" placeholder="Ingrese la contraseña">
       </div>
       <div class="form-row">
         <div class="form-col">
           <div class="form-group">
-            <label for="username">Primer Nombre</label>
-            <input type="text" id="username" name="primernombre" placeholder="Ingrese el primer nombre">
+            <label for="primerNombre">Primer Nombre</label>
+            <input type="text" id="primerNombre" name="primerNombre" placeholder="Ingrese el primer nombre">
           </div>
           <div class="form-group">
-            <label for="middle_name_1">Segundo Nombre</label>
-            <input type="text" id="middle_name_1" name="segundonombre" placeholder="Ingrese el segundo nombre">
+            <label for="segundoNombre">Segundo Nombre</label>
+            <input type="text" id="segundoNombre" name="segundoNombre" placeholder="Ingrese el segundo nombre">
           </div>
           <div class="form-group">
-            <label for="last_name">Primer Apellido</label>
-            <input type="text" id="last_name" name="primerapellido" placeholder="Ingrese el primer apellido">
+            <label for="primerApellido">Primer Apellido</label>
+            <input type="text" id="primerApellido" name="primerApellido" placeholder="Ingrese el primer apellido">
           </div>
           <div class="form-group">
-            <label for="middle_name_2">Segundo Apellido</label>
-            <input type="text" id="middle_name_2" name="segundoapellido" placeholder="Ingrese el segundo apellido">
+            <label for="segundoApellido">Segundo Apellido</label>
+            <input type="text" id="segundoApellido" name="segundoApellido" placeholder="Ingrese el segundo apellido">
           </div>
           <div class="form-group">
-            <label for="phone">Teléfono</label>
-            <input type="tel" id="phone" name="telefono" placeholder="Ingrese el teléfono">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ingrese el teléfono">
           </div>
           <div class="form-group">
             <label for="email">Correo</label>
@@ -138,13 +138,15 @@
             <input type="text" id="dni" name="dni" placeholder="Ingrese el DNI">
           </div>
           <div class="form-group">
-            <label for="gender">Género</label>
-            <input type="text" id="genero" name="genero" placeholder="Ingrese el genero">
-            
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero">
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+            </select>
           </div>
           <div class="form-group">
-            <label for="dob">Fecha de Nacimiento</label>
-            <input type="date" id="dob" name="fechanacimiento">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
           </div>
         </div>
         <div class="form-col">
