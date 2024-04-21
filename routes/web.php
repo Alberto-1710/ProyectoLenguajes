@@ -38,6 +38,9 @@ Route::get('/tipo', function(){
     return view('tipousuario');
 })->name("tipousuario.home");;
 
+Route::get('/admin', function(){
+    return view("vistaAdministrador");
+})->name("admin.home");
 
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
