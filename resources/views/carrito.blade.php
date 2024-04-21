@@ -107,16 +107,10 @@
     </header>
     <main>
       <div class="producto">
-        <i class="fa-solid fa-check"></i>
-        <h2>Nombre del Producto 1</h2>
-        <p>Descripción del Producto 1</p>
-        <span>$20.00</span>
+
       </div>
       <div class="producto">
-        <i class="fa-solid fa-check"></i>
-        <h2>Nombre del Producto 2</h2>
-        <p>Descripción del Producto 2</p>
-        <span>$30.00</span>
+
       </div>
       <!-- Añadir más productos aquí -->
       <!-- Botones -->
