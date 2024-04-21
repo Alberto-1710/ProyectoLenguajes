@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use GuzzleHttp\Exception\RequestException; //para validacion 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
@@ -59,15 +60,15 @@ class HomeController extends Controller
 
     public function crearUsuario(Request $request)
     {  
-        $primernombre = $request->input('primernombre');
-        $segundonombre = $request->input('segundonombre');
-        $primerapellido = $request->input('primerapellido');
-        $segundoapellido = $request->input('segundoapellido');
+        $primerNombre = $request->input('primerNombre');
+        $segundoNombre = $request->input('segundoNombre');
+        $primerApellido = $request->input('primerApellido');
+        $segundoApellido = $request->input('segundoApellido');
         $telefono = $request->input('telefono');
-        $correo = $request->input('correo');
+        $email = $request->input('correo');
         $dni = $request->input('dni');
         $genero = $request->input('genero');
-        $fechanacimiento = $request->input('fechanacimiento');
+        $fechaNacimiento = $request->input('fechaNacimiento');
         $pais = $request->input('pais');
         $departamento = $request->input('departamento');
         $municipio = $request->input('municipio');
@@ -81,23 +82,29 @@ class HomeController extends Controller
 
         try {
             $body = [
-                'primernombre' => $primernombre,
-                'segundonombre' => $segundonombre,
-                'primerapellido' => $primerapellido,
-                'segundoapellido' => $segundoapellido,
+                'primerNombre' => $primerNombre,
+                'segundoNombre' => $segundoNombre,
+                'primerApellido' => $primerApellido,
+                'segundoApellido' => $segundoApellido,
                 'telefono' => $telefono,
-                'correo' => $correo,
+                'email' => $email,
                 'dni' => $dni,
                 'genero' => $genero,
-                'fechanacimiento' => $fechanacimiento,
-                'pais' => $pais,
+                'fechaNacimiento' => $fechaNacimiento,
+                'usuarios'=> [
+                    'usuario' => $usuario,
+                'contrasenia' => $contrasenia,
+                ],
+                'direcciones'=> [
+                    'pais' => $pais,
                 'departamento' => $departamento,
                 'municipio' => $municipio,
                 'aldea' => $aldea,
                 'colonia' => $colonia,
                 'referencia' => $referencia,
-                'usuario' => $usuario,
-                'contrasenia' => $contrasenia
+                ]
+                
+            
                 
             ];
             // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
@@ -122,34 +129,45 @@ class HomeController extends Controller
     }
 
     public function validarUsuario(Request $request)
-    {  
-        $usuario = $request->input('usuario');
+    {   $usuario = $request->input('usuario');
         $contrasenia = $request->input('contrasenia');
 
         try {
+
             $body = [
                 'usuario' => $usuario,
-                'contrasenia' => $contrasenia];
-            // Realizar una solicitud GET a una ruta específica en tu aplicación Spring Boot
-            //$response = $client->request('GET', 'home/Sofia');
+                'contrasenia' => $contrasenia,
+            ];
+            // Realizar la solicitud al backend
             $response = $this->client->request('POST', 'api/usuario/login', [
                 'json' => $body // Enviar el cuerpo como JSON
             ]);
-            
-            // Obtener el código de estado de la respuesta
-            $statusCode = $response->getStatusCode();
-            
-            // Obtener el cuerpo de la respuesta como una cadena JSON
+
+            // Obtener el cuerpo de la respuesta
             $body = $response->getBody()->getContents();
-            
-            // Puedes manejar la respuesta aquí según tus necesidades
-            return view('home');
+            // Manejar la respuesta del servidor
+            return redirect()->route('home');
 
-        } catch (\Exception $e) {
-            // Manejar cualquier error que ocurra durante la solicitud
-            return $e->getMessage();
+           
+        } catch (RequestException $e) {
+            // Manejar errores de solicitud
+            if ($e->hasResponse()) {
+                // Obtener el código de estado del error
+                $statusCode = $e->getResponse()->getStatusCode();
+                if ($statusCode === 401) {
+                    return redirect()->route('login.home')->with('alerta', 'Contraseña incorrecta');
+                    
+                } elseif ($statusCode === 404) {
+                    return redirect()->route('login.home')->with('alerta', 'Usuario no existe');
+                } else {
+                    return redirect()->route('login.home')->with('alerta', 'Error desconocido!');
+                }
+                
+                
+            }
         }
-    }
 
+        return view('home');
+    }
 
 }

@@ -122,7 +122,7 @@
 <body>
 <div class="container">
   <div class="btn-container">
-    <a href="{{ route('login.home') }}" class="btn login-btn">Iniciar Sesión</a>
+    <a href="{{ route('tipousuario.home') }}" class="btn login-btn">Iniciar Sesión</a>
     <a href="{{ route('crear.home') }}" class="btn register-btn">Crear Usuario</a> <!-- Nuevo botón -->
     <a href="{{ route('carrito.home') }}" class="btn cart-btn">Carrito de Compra</a> 
   </div> 
