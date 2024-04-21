@@ -59,7 +59,7 @@ class HomeController extends Controller
 
     public function crearUsuario(Request $request)
     {  
-
+        $primerNombre = $request->input('primerNombre');
         $segundoNombre = $request->input('segundoNombre');
         $primerApellido = $request->input('primerApellido');
         $segundoApellido = $request->input('segundoApellido');
@@ -81,7 +81,7 @@ class HomeController extends Controller
 
         try {
             $body = [
-                'primerNombre' => $request->input('primerNombre'),
+                'primerNombre' => $primerNombre,
                 'segundoNombre' => $segundoNombre,
                 'primerApellido' => $primerApellido,
                 'segundoApellido' => $segundoApellido,

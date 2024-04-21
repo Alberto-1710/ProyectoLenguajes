@@ -30,6 +30,14 @@ Route::get('/carrito', function(){
     return view('carrito');
 })->name("carrito.home");
 
+Route::get('/ver', function(){
+    return view('agregarProductoVendedor');
+})->name("agregar.producto");;
+
+Route::get('/tipo', function(){
+    return view('tipousuario');
+})->name("tipousuario.home");;
+
 
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
 Route::get('/login', [HomeController::class, 'login'])->name("login.home");
