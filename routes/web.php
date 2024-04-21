@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('home');
 })->name("home");
 
+Route::get('/user', function () {
+    return view('homeUsuario');
+})->name("home.usuario");
+
 Route::get('/crearUsuario', function(){
     return view('crearUsuario');
 })->name("crear.home");
@@ -43,8 +47,13 @@ Route::get('/admin', function(){
 })->name("admin.home");
 
 Route::get('/factura', [HomeController::class, 'factura'])->name("factura.home");
-Route::get('/login', [HomeController::class, 'login'])->name("login.home");
+Route::get('/login/user', [HomeController::class, 'login'])->name("loginuser.home");
+
+Route::get('/login/admin', [HomeController::class, 'loginAdmin'])->name("loginadmin.home");
+
 Route::post('/validar', [HomeController::class, 'validarUsuario'])->name("validar.home");
+Route::post('/validar/admin', [HomeController::class, 'validarAdmin'])->name("validar.admin");
+
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
 
