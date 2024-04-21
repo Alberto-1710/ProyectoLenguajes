@@ -130,7 +130,6 @@
 
   <h1>Tienda en Línea: AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
-  <a href="#" class="btn">Ver todos los productos</a>
 
   <div class="products">
     <div class="product">

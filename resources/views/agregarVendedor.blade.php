@@ -77,6 +77,8 @@
     <div class="input-group">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required>
+      <label for="usuario">Usuario Vendedor:</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre de usuario">
     </div>
     <div class="input-group">
       <label for="precio">Precio:</label>

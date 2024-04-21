@@ -88,12 +88,13 @@
 </head>
 <body>
 <div class="container">
-  <h1 style="margin-top: 50px;">Tienda en Línea: AgoraMarket</h1>
+  <h1 style="margin-top: 50px;">AgoraMarket</h1>
   <h1>Bienvenido Administrador</h1>
   <h2>¿Qué desea hacer?</h2> <!-- Nuevo título encima de los botones -->
   <div class="btn-container">
     <a href="#" class="btn admin-btn">Agregar Vendedor</a>
-    <a href="#" class="btn admin-btn">Agregar Producto a Vendedor</a>
+    <a href="#" class="btn admin-btn">Agregar Producto a 
+      Vendedor</a>
   </div> 
 </div>
 </body>
