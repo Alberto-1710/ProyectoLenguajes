@@ -49,17 +49,9 @@
   }
 
   .btn-container {
-    display: flex;
-    justify-content: right; 
-    margin-bottom: 10px;
-  }
-
-  .login-btn {
-    margin-right: 5px; 
-  }
-
-  .register-btn {
-    margin-left: 5px; 
+    position: absolute;
+    top: 80px; /* Ajustado para dejar espacio entre el botón y el título */
+    right: 20px;
   }
 
   .cart-btn {
@@ -67,7 +59,7 @@
   }
 
   .products {
-    margin-top: 50px;
+    margin-top: 100px; /* Ajustado para dejar espacio para el botón en la parte superior */
     text-align: center;
   }
 
@@ -106,56 +98,78 @@
     margin-bottom: 10px;
   }
 
-  .add-to-cart {
+  .add-to-cart-container {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    color: #668DC0;
-    cursor: pointer;
   }
 
-  .add-to-cart:hover {
-    color: #304A6E;
+  .add-to-cart-btn {
+    color: #fff;
+    background-color: #668DC0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Ajustamos el padding para que el botón sea más grande */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .add-to-cart-btn i {
+    margin-right: 5px;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #304A6E;
   }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="btn-container">
+    <a href="{{ route('carrito.home') }}" class="btn cart-btn">Carrito de Compra</a> <!-- Botón de carrito movido a la parte superior derecha y un poco más abajo -->
     <a href="{{ route('tipousuario.home') }}" class="btn login-btn">Iniciar Sesión</a>
     <a href="{{ route('crear.home') }}" class="btn register-btn">Crear Usuario</a> <!-- Nuevo botón -->
-    <a href="{{ route('carrito.home') }}" class="btn cart-btn">Carrito de Compra</a> 
   </div> 
-  
 
-  <h1>Tienda en Línea: AgoraMarket</h1>
+  <h1>AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
 
   <div class="products">
     <div class="product">
-      
       <h2>Producto 1</h2>
       <p>Descripción del Producto 1</p>
       <p class="price">L50.00</p>
-      
-      <form action="CarritoController.php" method="POST">
-        <input type="hidden" name="productId" value="1">
-        <input type="number" name="cantidad" value="1" min="1">
-        <a href="{{ route('carrito.home') }}" type="submit" name="add_to_cart">Agregar al carrito</a>
-    </form> 
+      <div class="add-to-cart-container">
+        <button class="add-to-cart-btn" title="Agregar al carrito">
+          <i class="fas fa-shopping-cart"></i>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
     <div class="product">
       <h2>Producto 2</h2>
       <p>Descripción del Producto 2</p>
       <p class="price">L30.00</p>
-      <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
+      <div class="add-to-cart-container">
+        <button class="add-to-cart-btn" title="Agregar al carrito">
+          <i class="fas fa-shopping-cart"></i>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
     <div class="product">
-      
       <h2>Producto 3</h2>
       <p>Descripción del Producto 3</p>
       <p class="price">420.00</p>
-      <i class="fas fa-shopping-cart add-to-cart" title="Agregar al carrito"></i>
+      <div class="add-to-cart-container">
+        <button class="add-to-cart-btn" title="Agregar al carrito">
+          <i class="fas fa-shopping-cart"></i>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -165,14 +179,14 @@
    var productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
     
     // Selecciona todos los elementos con la clase .add-to-cart
-    var addToCartButtons = document.querySelectorAll('.add-to-cart');
+    var addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
   
     // Itera sobre cada botón "Agregar al carrito"
     addToCartButtons.forEach(function(button) {
       // Agrega un evento de clic a cada botón
       button.addEventListener('click', function() {
         // Obtén el nombre del producto del elemento padre (.product)
-        var nombreProducto = this.parentNode.querySelector('h2').innerText;
+        var nombreProducto = this.parentNode.parentNode.querySelector('h2').innerText;
         
         // Muestra el nombre del producto en la consola
         console.log("Producto agregado al carrito: " + nombreProducto);
