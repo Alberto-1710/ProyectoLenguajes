@@ -186,4 +186,7 @@ class HomeController extends Controller
         // Si la validación falla, redirigir al usuario administrador a la ruta de inicio de sesión
         return redirect()->route('loginadmin.home')->with('alerta', 'Usuario o contraseña incorrectos');
     }
+
+
+    //Hola
 }
