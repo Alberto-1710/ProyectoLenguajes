@@ -144,7 +144,7 @@
     <a href="{{ route('crear.home') }}" class="btn register-btn">Crear Usuario</a> <!-- Nuevo botón -->
   </div> 
 
-  
+  <a href="https://ibb.co/RpK3sW0"><img src="https://i.ibb.co/RpK3sW0/logo2.png" alt="logo2" border="0"></a>
   <h1>AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
 
@@ -156,12 +156,11 @@
         <p>Camiseta</p>
         <p class="price">L100.00</p>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
-        
+        </a>
       </div>
     </div>
     <div class="product">
@@ -185,11 +184,11 @@
         <p>Loción para dama</p>
         <p class="price">L.720.00</p>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
+        </a>
       </div>
     </div>
   </div>
