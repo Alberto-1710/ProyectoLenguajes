@@ -38,9 +38,20 @@ class CarritoController extends Controller
         session()->put('carrito', $carrito);
 
         // Devuelve una respuesta JSON indicando que el producto se agregó al carrito correctamente
-        return response()->json(['success' => true, 'message' => 'Producto agregado al carrito']);
+        //return response()->json(['success' => true, 'message' => 'Producto agregado al carrito']);
+        return view('carrito');
     }
     
+    public function mostrarProductosEnVista(Request $request)
+{
+    // Obtener los productos del carrito (puede ser null si no hay productos)
+    $productosEnCarrito = session('productosEnCarrito') ?? [];
+
+    dd($productosEnCarrito);
+
+    // Pasar los productos a la vista
+    return view('carrito', compact('productosEnCarrito'));
+}
     /*
 
     public function agregarProductoAlCarrito(Request $request) {

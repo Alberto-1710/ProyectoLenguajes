@@ -59,7 +59,7 @@ Route::post('/validar/admin', [HomeController::class, 'validarAdmin'])->name("va
 Route::get('/pago', [HomeController::class, 'realizarPago'])->name("pago.home");
 Route::get('/reportes', [HomeController::class, 'reportes'])->name("reportes.home");
 
-Route::get('/carrito', [CarritoController::class, 'agregarProductoAlCarrito'])->name('carrito.home');
+Route::get('/carrito', [CarritoController::class, 'mostrarProductosEnVista'])->name('carrito.home');
 
 
 Route::post('/cart/add', 'CartController@addToCart')->name('cart.addToCart');

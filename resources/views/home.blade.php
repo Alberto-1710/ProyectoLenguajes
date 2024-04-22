@@ -154,7 +154,7 @@
       <div class="product-info">
         <h2>Categoria: Ropa</h2>
         <p>Camiseta</p>
-        <p class="price">L100.00</p>
+        <p2 class="price">L100.00</p2>
       </div>
       <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
         <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
@@ -206,18 +206,45 @@
       // Agrega un evento de clic a cada botón
       button.addEventListener('click', function() {
         // Obtén el nombre del producto del elemento padre (.product)
-        var nombreProducto = this.parentNode.parentNode.querySelector('h2').innerText;
+        var categoriaProducto = this.parentNode.parentNode.querySelector('h2').innerText;
+        var nombreProducto = this.parentNode.parentNode.querySelector('p').innerText;
+        var precioProducto = this.parentNode.parentNode.querySelector('p2').innerText;
+        
+        
         
         // Muestra el nombre del producto en la consola
-        console.log("Producto agregado al carrito: " + nombreProducto);
+        console.log("Producto agregado al carrito: ");
+
+        var producto = {
+          categoria: categoriaProducto,
+          nombre: nombreProducto,
+          precio: precioProducto
+        };
         
         // Agrega el nombre del producto a la lista de productos en el carrito
-        productosEnCarrito.push(nombreProducto);
+        productosEnCarrito.push(producto);
         
         // Guarda la lista actualizada de productos en el localStorage
         localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
 
-        
+      
+        // Recupera los datos del localStorage
+
+
+// Envia los datos al servidor a través de una solicitud AJAX
+fetch('/carrito', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(productosEnCarrito) // Solo envía el arreglo directamente
+})
+.then(response => {
+    // Maneja la respuesta del servidor si es necesario
+})
+.catch(error => {
+    // Maneja errores si ocurren durante la solicitud AJAX
+});
       });
     });
   });

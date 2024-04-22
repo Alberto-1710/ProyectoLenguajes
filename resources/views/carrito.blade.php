@@ -106,7 +106,19 @@
       <h1><a href="#"><i class="fas fa-solid fa-cart-shopping"></i></a></h1> <!-- Utilizamos la clase de icono -->
     </header>
     <main>
-    
+      <div class="productos-carrito">
+        @if($productosEnCarrito!=null)
+        @foreach($productosEnCarrito as $producto)
+            <div class="producto">
+                <h2>{{ $producto['nombre'] }}</h2>
+                <p>Precio: {{ $producto['precio'] }}</p>
+                <!-- Otros detalles del producto según sea necesario -->
+            </div>
+        @endforeach
+    @else
+        <p>No hay productos en el carrito.</p>
+    @endif
+    </div>
 
 
       </div>
@@ -124,17 +136,6 @@
       // Aquí puedes agregar la lógica para proceder a la compra
       alert("Debes seleccionar un metodo de pago...");
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-    var cartItemsContainer = document.querySelector('.cart-items');
-    var productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
-
-    productosEnCarrito.forEach(function(producto) {
-      var listItem = document.createElement('div');
-      listItem.textContent = producto.nombre + ' - ' + producto.precio;
-      cartItemsContainer.appendChild(listItem);
-    });
-  });
 
   </script>
 
