@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+¿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -85,6 +85,10 @@
       justify-content: space-between;
     }
 
+    .btn-wrapper {
+      display: inline-block;
+    }
+
     .btn {
       background-color: #668DC0;
       color: #fff;
@@ -97,6 +101,11 @@
 
     .btn:hover {
       background-color: #304A6E;
+    }
+
+    /* Añadimos margen entre los botones */
+    .btn-wrapper:first-child {
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -115,8 +124,12 @@
       <!-- Añadir más productos aquí -->
       <!-- Botones -->
       <div class="btn-container">
-        <a class="btn" onclick="procederCompra()">Proceder a compra</a>
-        <a href = "{{ route('home') }}" class="btn" >Volver</a>
+        <div class="btn-wrapper">
+          <a class="btn" onclick="procederCompra()">Proceder a compra</a>
+        </div>
+        <div class="btn-wrapper">
+          <a href="{{ route('home') }}" class="btn">Volver</a>
+        </div>
       </div>
     </main>
   </div>
@@ -126,7 +139,6 @@
       // Aquí puedes agregar la lógica para proceder a la compra
       alert("Debes seleccionar un metodo de pago...");
     }
-
   </script>
 </body>
 </html>

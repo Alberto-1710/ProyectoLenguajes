@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tienda en Línea</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agregamos la hoja de estilos de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -12,26 +12,26 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    height: 100vh; /* Altura completa de la ventana */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
   }
 
   .container {
-    max-width: 600px; /* Reducir el ancho para centrarlo mejor */
+    max-width: 600px; 
     padding: 50px 20px;
     color: #C0D0EF;
     text-align: center;
     position: relative;
-    align-items: center; /* Alinear los elementos al centro */
+    align-items: center; 
   }
 
   h1 {
     color: #668DC0;
     font-size: 36px;
     
-    margin-top: -25px; /* Ajusta el margen superior */
-    margin-bottom: 120px; /* Ajusta el margen inferior */
+    margin-top: -25px; 
+    margin-bottom: 120px; 
   }
 
   h2 { /* Nuevo estilo para el título */
@@ -48,13 +48,15 @@
   .btn {
     background-color: #668DC0;
     color: #fff;
-    padding: 16px 32px; /* Aumento del tamaño del botón */
+    padding: 16px 32px; 
     border: none;
-    border-radius: 8px; /* Aumento del radio del borde */
+    border-radius: 8px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
-    font-size: 20px; /* Aumento del tamaño del texto */
+    font-size: 20px; 
+    display: block;
+    margin: 10px auto; 
   }
 
   .btn:hover {
@@ -63,13 +65,19 @@
 
   .btn-container {
     display: flex;
-    justify-content: center; /* Ajuste para centrar los botones */
+    justify-content: space-between; 
     margin-bottom: 20px;
+    align-items: center; 
+  }
+
+  .btn-vertical-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center; 
   }
 
   .btn-container .btn {
-    margin: 0 10px; /* Ajuste de margen para los botones */
-    margin-bottom: 300px;
+    margin: 0 10px;
   }
 
   .login-btn {
@@ -81,7 +89,7 @@
   }
 
   .admin-options {
-    display: none; /* Ocultar las opciones */
+    display: none; 
   }
 
 </style>
@@ -93,8 +101,14 @@
   <h2>¿Qué desea hacer?</h2> <!-- Nuevo título encima de los botones -->
   <div class="btn-container">
     <a href="#" class="btn admin-btn">Agregar Vendedor</a>
-    <a href="#" class="btn admin-btn">Agregar Producto a 
-      Vendedor</a>
+    <a href="#" class="btn admin-btn" style="margin-bottom: 10px;">Agregar Producto a Vendedor</a>
+  </div>
+  <!-- Botones adicionales -->
+  <h2>Desea generar reportes?</h2>
+  <div class="btn-vertical-container">
+    <a href="#" class="btn admin-btn">Reporte Compras Usuario</a>
+    <a href="#" class="btn admin-btn">Reporte ventas por Categoria</a>
+    <a href="#" class="btn admin-btn">Reporte Ventas por Vendedor</a>
   </div> 
 </div>
 </body>
