@@ -187,6 +187,45 @@ class HomeController extends Controller
         return redirect()->route('loginadmin.home')->with('alerta', 'Usuario o contraseña incorrectos');
     }
 
+    public function agregarProducto(Request $request){
+        
+        $nombre = $request->input('nombre');
+        $precio = $request->input('precio');
+        $descripcion = $request->input('descripcion');
+        $cantidadStock = $request->input('cantidadStock');
+        $categorias = $request->input('categorias');
 
-    //Hola
+
+try {
+            $body = [
+                'nombre' => $nombre,
+                'precio' => $precio,
+                'descripcion' => $descripcion,
+                'cantidadStock' => $cantidadStock,                
+                'categorias'=> [
+                    'nombre' => $categorias
+                ]
+                
+            
+                
+            ];
+
+            $response = $this->client->request('POST', 'api/producto/crear', [
+                'json' => $body 
+            ]);
+            
+            $statusCode = $response->getStatusCode();
+            
+            $body = $response->getBody()->getContents();
+            
+            return view('vistaAdministrador');
+
+        } catch (\Exception $e) {
+            // Manejar cualquier error que ocurra durante la solicitud
+            return $e->getMessage();
+        }
+    }
+
+
+    
 }

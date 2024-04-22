@@ -73,6 +73,8 @@
 <body>
   <div class="container">
     <h1>Agregar Producto a Vendedor</h1>
+    <form id="formulario" method="POST" action="{{ route('agregarproducto.home')}}">
+      @csrf
     <div class="input-group">
       <label for="usuario">Usuario:</label>
       <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre de usuario">
@@ -90,15 +92,15 @@
       <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto"></textarea>
     </div>
     <div class="input-group">
-      <label for="stock">Cantidad en Stock:</label>
-      <input type="number" id="stock" name="stock" placeholder="Cantidad en stock">
+      <label for="cantidadStock">Cantidad en Stock:</label>
+      <input type="number" id="cantidadStock" name="cantidadStock" placeholder="Cantidad en stock">
     </div>
     <div class="input-group">
-      <label for="categoria">Categoría:</label>
-      <select id="categoria" name="categoria">
-        <option value="ropa">Ropa</option>
-        <option value="perfume">Perfume</option>
-        <option value="calzado">Calzado</option>
+      <label for="categorias">Categoría:</label>
+      <select id="categorias" name="categorias">
+        <option value="R">Ropa</option>
+        <option value="P">Perfume</option>
+        <option value="C">Calzado</option>
       </select>
     </div>
     <button class="btn">Agregar Producto</button>

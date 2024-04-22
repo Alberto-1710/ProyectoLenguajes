@@ -22,6 +22,27 @@ class CarritoController extends Controller
         session()->put('carrito', $carrito);
     }
 
+
+    public function agregarProductoAlCarrito(Request $request)
+    {
+        // Obtén el nombre del producto desde la solicitud
+        $nombreProducto = $request->input('nombreProducto');
+
+        // Obtén el carrito actual del usuario desde la sesión
+        $carrito = session()->get('carrito', []);
+
+        // Agrega el nombre del producto al carrito
+        $carrito[] = $nombreProducto;
+
+        // Actualiza el carrito en la sesión
+        session()->put('carrito', $carrito);
+
+        // Devuelve una respuesta JSON indicando que el producto se agregó al carrito correctamente
+        return response()->json(['success' => true, 'message' => 'Producto agregado al carrito']);
+    }
+    
+    /*
+
     public function agregarProductoAlCarrito(Request $request) {
         // Obtener el producto enviado desde la solicitud
         $producto = $request->input('producto');
@@ -45,7 +66,7 @@ class CarritoController extends Controller
     }
     
 
-    /*public function agregarProductoAlCarrito(Request $request) {
+ public function agregarProductoAlCarrito(Request $request) {
         $producto = $request->all(); // Obtener los datos del producto del formulario
         $this->agregarAlCarrito($producto);
         return redirect()->back(); // Redireccionar de vuelta a la página del carrito

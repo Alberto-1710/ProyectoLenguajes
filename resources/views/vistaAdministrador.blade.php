@@ -93,8 +93,8 @@
   <h2>¿Qué desea hacer?</h2> <!-- Nuevo título encima de los botones -->
   <div class="btn-container">
     <a href="#" class="btn admin-btn">Agregar Vendedor</a>
-    <a href="#" class="btn admin-btn">Agregar Producto a 
-      Vendedor</a>
+    <a href="{{ route('agregar.producto') }}" class="btn admin-btn">Agregar Producto a Vendedor</a>
+
   </div> 
 </div>
 </body>
