@@ -6,7 +6,54 @@ use Illuminate\Http\Request;
 
 class CarritoController extends Controller
 {
-    public function index()
+
+    // Inicializar el carrito en el controlador
+    public function inicio(){
+
+        $carrito = session('carrito', []);
+
+        return view('carrito', compact('carrito'));
+
+    }
+
+    public function agregarAlCarrito($producto) {
+        $carrito = session('carrito');
+        array_push($carrito, $producto);
+        session()->put('carrito', $carrito);
+    }
+
+    public function agregarProductoAlCarrito(Request $request) {
+        // Obtener el producto enviado desde la solicitud
+        $producto = $request->input('producto');
+    
+        // Inicializar el carrito si aún no ha sido inicializado
+        if (!session()->has('carrito')) {
+            session()->put('carrito', []);
+        }
+    
+        // Obtener el carrito actual de la sesión
+        $carrito = session()->get('carrito');
+    
+        // Agregar el producto al carrito
+        array_push($carrito, $producto);
+    
+        // Actualizar el carrito en la sesión
+        session()->put('carrito', $carrito);
+    
+        // Devolver una respuesta de éxito
+        return view('carrito');
+    }
+    
+
+    /*public function agregarProductoAlCarrito(Request $request) {
+        $producto = $request->all(); // Obtener los datos del producto del formulario
+        $this->agregarAlCarrito($producto);
+        return redirect()->back(); // Redireccionar de vuelta a la página del carrito
+    }*/
+    
+
+
+   /* public function index()
     {
         $cart = session('cart', []);
 
@@ -48,5 +95,7 @@ class CarritoController extends Controller
         }
 
         return redirect()->route('cart.index');
+ 
     }
+*/
 }

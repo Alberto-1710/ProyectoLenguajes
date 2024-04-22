@@ -106,10 +106,8 @@
       <h1><a href="#"><i class="fas fa-solid fa-cart-shopping"></i></a></h1> <!-- Utilizamos la clase de icono -->
     </header>
     <main>
-      <div class="producto">
+    
 
-      </div>
-      <div class="producto">
 
       </div>
       <!-- Añadir más productos aquí -->
@@ -127,6 +125,19 @@
       alert("Debes seleccionar un metodo de pago...");
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+    var cartItemsContainer = document.querySelector('.cart-items');
+    var productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+
+    productosEnCarrito.forEach(function(producto) {
+      var listItem = document.createElement('div');
+      listItem.textContent = producto.nombre + ' - ' + producto.precio;
+      cartItemsContainer.appendChild(listItem);
+    });
+  });
+
   </script>
+
+
 </body>
 </html>

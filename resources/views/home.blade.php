@@ -161,6 +161,7 @@
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
         </button>
+        
       </div>
     </div>
     <div class="product">
@@ -170,11 +171,11 @@
         <p>Tenis</p>
         <p class="price">L800.00</p>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
+        </a>
       </div>
     </div>
     <div class="product">
@@ -216,10 +217,14 @@
         
         // Guarda la lista actualizada de productos en el localStorage
         localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
+
         
       });
     });
   });
+    
 </script>
+
+
 </body>
 </html>
