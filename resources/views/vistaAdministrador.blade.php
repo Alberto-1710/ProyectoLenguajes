@@ -101,14 +101,8 @@
   <h2>¿Qué desea hacer?</h2> <!-- Nuevo título encima de los botones -->
   <div class="btn-container">
     <a href="#" class="btn admin-btn">Agregar Vendedor</a>
-    <a href="#" class="btn admin-btn" style="margin-bottom: 10px;">Agregar Producto a Vendedor</a>
-  </div>
-  <!-- Botones adicionales -->
-  <h2>Desea generar reportes?</h2>
-  <div class="btn-vertical-container">
-    <a href="#" class="btn admin-btn">Reporte Compras Usuario</a>
-    <a href="#" class="btn admin-btn">Reporte ventas por Categoria</a>
-    <a href="#" class="btn admin-btn">Reporte Ventas por Vendedor</a>
+    <a href="#" class="btn admin-btn">Agregar Producto a 
+      Vendedor</a>
   </div> 
 </div>
 </body>

@@ -144,7 +144,7 @@
     <a href="{{ route('crear.home') }}" class="btn register-btn">Crear Usuario</a> <!-- Nuevo botón -->
   </div> 
 
-  
+  <a href="https://ibb.co/RpK3sW0"><img src="https://i.ibb.co/RpK3sW0/logo2.png" alt="logo2" border="0"></a>
   <h1>AgoraMarket</h1>
   <p>Descubre una variedad de productos de alta calidad a precios increíbles.</p>
 
@@ -154,13 +154,13 @@
       <div class="product-info">
         <h2>Categoria: Ropa</h2>
         <p>Camiseta</p>
-        <p class="price">L100.00</p>
+        <p2 class="price">L100.00</p2>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
+        </a>
       </div>
     </div>
     <div class="product">
@@ -170,11 +170,11 @@
         <p>Tenis</p>
         <p class="price">L800.00</p>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
+        </a>
       </div>
     </div>
     <div class="product">
@@ -184,11 +184,11 @@
         <p>Loción para dama</p>
         <p class="price">L.720.00</p>
       </div>
-      <div class="add-to-cart-container">
-        <button class="add-to-cart-btn" title="Agregar al carrito">
+      <div class="btnAgregarCarrito" data-producto="{'nombre': 'Producto A', 'precio': 10.99}">
+        <a href="{{ route('carrito.home') }}" class="add-to-cart-btn" title="Agregar al carrito">
           <i class="fas fa-shopping-cart"></i>
           Agregar al carrito
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -206,20 +206,51 @@
       // Agrega un evento de clic a cada botón
       button.addEventListener('click', function() {
         // Obtén el nombre del producto del elemento padre (.product)
-        var nombreProducto = this.parentNode.parentNode.querySelector('h2').innerText;
+        var categoriaProducto = this.parentNode.parentNode.querySelector('h2').innerText;
+        var nombreProducto = this.parentNode.parentNode.querySelector('p').innerText;
+        var precioProducto = this.parentNode.parentNode.querySelector('p2').innerText;
+        
+        
         
         // Muestra el nombre del producto en la consola
-        console.log("Producto agregado al carrito: " + nombreProducto);
+        console.log("Producto agregado al carrito: ");
+
+        var producto = {
+          categoria: categoriaProducto,
+          nombre: nombreProducto,
+          precio: precioProducto
+        };
         
         // Agrega el nombre del producto a la lista de productos en el carrito
-        productosEnCarrito.push(nombreProducto);
+        productosEnCarrito.push(producto);
         
         // Guarda la lista actualizada de productos en el localStorage
         localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
-        
+
+      
+        // Recupera los datos del localStorage
+
+
+// Envia los datos al servidor a través de una solicitud AJAX
+fetch('/carrito', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(productosEnCarrito) // Solo envía el arreglo directamente
+})
+.then(response => {
+    // Maneja la respuesta del servidor si es necesario
+})
+.catch(error => {
+    // Maneja errores si ocurren durante la solicitud AJAX
+});
       });
     });
   });
+    
 </script>
+
+
 </body>
 </html>

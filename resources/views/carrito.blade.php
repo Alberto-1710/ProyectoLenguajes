@@ -115,10 +115,20 @@
       <h1><a href="#"><i class="fas fa-solid fa-cart-shopping"></i></a></h1> <!-- Utilizamos la clase de icono -->
     </header>
     <main>
-      <div class="producto">
+      <div class="productos-carrito">
+        @if($productosEnCarrito!=null)
+        @foreach($productosEnCarrito as $producto)
+            <div class="producto">
+                <h2>{{ $producto['nombre'] }}</h2>
+                <p>Precio: {{ $producto['precio'] }}</p>
+                <!-- Otros detalles del producto según sea necesario -->
+            </div>
+        @endforeach
+    @else
+        <p>No hay productos en el carrito.</p>
+    @endif
+    </div>
 
-      </div>
-      <div class="producto">
 
       </div>
       <!-- Añadir más productos aquí -->
@@ -140,5 +150,7 @@
       alert("Debes seleccionar un metodo de pago...");
     }
   </script>
+
+
 </body>
 </html>
